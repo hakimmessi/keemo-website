@@ -1,3 +1,5 @@
+/* styles/home.css */
+
 /* General styles */
 * {
   margin: 0;
@@ -9,103 +11,249 @@
 }
 
 html, body {
-  height: 100%; /* Changed from min-height to ensure full page coverage */
+  height: 100%;
   width: 100%;
+  font-size: 16px;
 }
 
 body {
   position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 header, footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0.5rem;
+  background: transparent;
 }
 
 .header-item, .footer-item {
-  font-size: 20px;
+  font-size: 1rem;
   font-family: "Palette Mosaic", system-ui;
-  line-height: 43px;
+  line-height: 1.5;
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 0.45em;
-  color: #b6a785;
-  background: none;
-  cursor: pointer;
+  letter-spacing: 0.1em;
+  color: #fff16c;
   border: none;
   outline: none;
   transition: all 0.3s ease;
 }
 
-
 .footer-item {
-  font-size: 40px;
+  font-size: 1.5rem;
   font-weight: 400;
   font-style: normal;
 }
 
 .header {
-  position: fixed; /* Changed from absolute to fixed for consistent positioning */
-  top: 56px;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  height: 43px;
+  z-index: 10;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 .footer {
-  position: fixed; /* Changed from absolute to fixed for consistent positioning */
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 161px;
-}
-
-.footer-item {
-  line-height: 150px;
+  z-index: 10;
 }
 
 .footer-item:hover {
-  font-size: 105px; /* Updated size */
-  color: #FF5733; /* Change color on hover */
-  font-weight: bold; /* Add bold font weight */
-  text-transform: uppercase; /* Make text uppercase */
+  font-size: 3rem;
+  color: #0c6031;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .hero {
   position: absolute;
-  top: 179px;
-  left: 115px;
-  width: 1000px;
-  height: 666.75px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -1; /* Ensures the image stays in the background */
+  object-position: center;
 }
 
-.contact-button {
-  position: absolute;  font-family:"Palette Mosaic", system-ui;
-  width: 80px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 15px;
-  background: #b6a785;
-  border-radius: 60px;
-  font-size: 20px;
-  line-height: 30px;
-  color: #221d10;
-  opacity: 0.9;
-  text-align: center;
-  letter-spacing: 0.12em;
+/* Custom cursor */
+.custom__cursor {
+  display: none;
+}
+
+/* Click indicator */
+.cursor__click {
+  display: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+  .header, .footer {
+    padding: 0.5rem;
+    background: transparent;
+  }
+  
+  .header-item, .footer-item {
+    font-size: 0.9rem;
+    background: transparent;
+  }
+  
+  .footer-item {
+    font-size: 1.2rem;
+    background: transparent;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    cursor: none;
+  }
+
+  .custom__cursor {
+    display: block;
+    background: #2a1e01;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+    opacity: 0;
+  }
+
+  .cursor__click {
+    display: none;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: #fff16c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    z-index: 101;
+    font-size: 14px;
+    font-family: "Palette Mosaic", system-ui;
+  }
+
+  header, footer {
+    padding: 0 3rem;
+    background: transparent;
+  }
+
+  .header-item, .footer-item {
+    font-size: 1.25rem;
+    letter-spacing: 0.45em;
+    background: transparent;
+  }
+
+  .footer-item {
+    font-size: 2.5rem;
+  }
+
+  .footer-item:hover {
+    font-size: 3rem;
+  }
+
+  .header {
+    top: 3.5rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .header-item, .footer-item {
+    font-size: 1.5rem;
+  }
+
+  .footer-item {
+    font-size: 3rem;
+  }
+
+  .footer-item:hover {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  html, body {
+    font-size: 18px;
+  }
+}
+
+/* styles/home.css */
+
+/* Add these styles to position the hamburger icon */
+.btnHamburger {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+}
+
+.btnHamburger img {
+  width: 24px;
+  height: 24px;
+
+}
+
+@media only screen and (max-width: 767px) {
+  .btnHamburger img {
+      width: 20px;
+      height: 20px;
+
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .btnHamburger img {
+      width: 28px;
+      height: 28px;
+
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .btnHamburger img {
+      width: 32px;
+      height: 32px;
+    
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnHamburger img {
+      width: 36px;
+      height: 36px;
+      padding: 0.5rem;
+  }
 }
